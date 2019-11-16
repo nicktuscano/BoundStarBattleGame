@@ -80,11 +80,11 @@ public class GameWorld extends JPanel {
     } catch (IOException ex) {
       System.out.println(ex.getMessage());
     }
-    t1 = new Tank(350, 450, 0, 0, 0, t1img, bulletimg);
-    t2 = new Tank(750, 450, 0, 0, 180, t2img, bulletimg);
+    t2 = new Tank(350, 450, 0, 0, 0, t1img, bulletimg);
+    t1 = new Tank(750, 450, 0, 0, 180, t2img, bulletimg);
 
-    TankControl player1 = new TankControl(t1, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_ENTER);
-    TankControl player2 = new TankControl(t2, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_SHIFT);
+    TankControl player2 = new TankControl(t2, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_ENTER);
+    TankControl player1 = new TankControl(t1, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_SHIFT);
 
     this.jf.setLayout(new BorderLayout());
     this.jf.add(this);

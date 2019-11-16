@@ -26,7 +26,7 @@ public class Bullet extends GameObject {
     this.y = y;
     this.img = img;
     this.angle = angle;
-    this.bounds = new Rectangle(x, y, this.img.getWidth() / 4, this.img.getHeight() / 4);
+    this.bounds = new Rectangle(x, y, this.img.getWidth() / 2, this.img.getHeight() / 2);
     this.cH = cH.getInstance();
     this.isAlive = true;
   }
@@ -53,7 +53,7 @@ public class Bullet extends GameObject {
   }
 
   private void updateBounds(){
-    this.bounds = new Rectangle(x, y, this.img.getWidth() / 4 , this.img.getHeight() / 4);
+    this.bounds = new Rectangle(x, y, this.img.getWidth() / 2 , this.img.getHeight() / 2);
   }
 
   public void handleCollision(GameObject obj, ArrayList<Bullet> ammo){

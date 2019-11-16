@@ -147,11 +147,13 @@ public class Tank extends GameObject{
          bullet.update();
        }
        this.timer++;
-       this.refresh();
+       //this.refresh();
      } else {
        System.exit(0);
      }
   }
+
+
   private void refresh(){
     Bullet b;
     for (int i = 0 ; i < this.ammo.size(); i++){
@@ -195,7 +197,7 @@ public class Tank extends GameObject{
   }
 
   public void hit(){
-    this.health -= 10;
+    this.health -= 5;
   }
 
   private void rotateLeft() {
@@ -265,7 +267,7 @@ public class Tank extends GameObject{
     }
     g2d.fillRect(this.x, this.y+50,50, 10);
     g2d.setColor(Color.PINK);
-    g2d.setFont(new Font("ComicSans", Font.BOLD, 15));
+    g2d.setFont(new Font("bold", Font.BOLD, 15));
     g2d.drawString(String.valueOf(this.lives),this.x-10,this.y+60);
   }
 

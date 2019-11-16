@@ -3,6 +3,11 @@
 ## Student Name  : Nicholas Tuscano
 ## Student ID    : 915052013
 
+## P1 CONTROLS (LEFT)
+## W,A,S,D,SHIFT
+
+## P2 CONTROLS (RIGHT)
+## UP,LEFT,RIGHT,DOWN,ENTER
 
 ## src folder is to be used to store source code only.
 
