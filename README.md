@@ -3,9 +3,8 @@
 ## Student Name  : Nicholas Tuscano
 ## Student ID    : 915052013
 
-#java -jar /Users/Not_Ur_Da/Desktop/csc413-tankgame-nicktuscano/out/artifacts/csc413_tankgame_nicktuscano_jar/csc413-tankgame-nicktuscano.jar
-
-#only tried running jar from inside project directory
+#java -jar (jar path)
+#only tried running jar from inside project directory "out" folder
 
 ## P1 CONTROLS (LEFT)
 ## W,A,S,D,SHIFT
