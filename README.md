@@ -4,7 +4,9 @@
 ## Student ID    : 915052013
 
 #java -jar (jar path)
-#only tried running jar from inside project directory "out" folder
+
+#give the game a minute to get going, can be slow initially
+
 
 ## P1 CONTROLS (LEFT)
 ## W,A,S,D,SHIFT
