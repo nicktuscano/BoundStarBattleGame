@@ -23,8 +23,12 @@ import static javax.imageio.ImageIO.read;
 public class GameWorld extends JPanel {
 
 
-  public static final int SCREEN_WIDTH = 800;
-  public static final int SCREEN_HEIGHT = 600;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  public static final int SCREEN_WIDTH = 1000;
+  public static final int SCREEN_HEIGHT = 700;
 
   public static final int MAP_WIDTH = 1200;
   public static final int MAP_HEIGHT = 1200;
@@ -53,11 +57,10 @@ public class GameWorld extends JPanel {
 
   private void init() {
 
-    this.jf = new JFrame("Tank Game");
+    this.jf = new JFrame("Bound Star Battle Game");
     this.world = new BufferedImage(GameWorld.MAP_WIDTH, GameWorld.MAP_HEIGHT, BufferedImage.TYPE_INT_RGB);
-
     this.mb = new MapBuilder();
-    this.cH = cH.getInstance();
+    this.cH = CollisionHandler.getInstance();
     BufferedImage t1img = null, t2img = null, bulletimg = null;
 
     try {
@@ -66,23 +69,22 @@ public class GameWorld extends JPanel {
       System.out.println(System.getProperty("user.dir"));
       mb.loadMap();
 
-      t1img = read(new File("resources/tank1.png"));
-      t2img = read(new File("resources/tank2.png"));
-      ground = read(new File("resources/Background.bmp"));
-      wallimg = read(new File("resources/Wall1.gif"));
-      bwallimg = read(new File("resources/Wall2.gif"));
-      bulletimg = read(new File("resources/bullet2.png"));
-      speedimg = read(new File("resources/Shield1.gif"));
-      lifeimg = read(new File("resources/heart.png"));
-      frimg = read(new File("resources/Shield2.gif"));
+      t1img = read(new File("resources/ship3.png"));
+      t2img = read(new File("resources/ship4.png"));
+      ground = read(new File("resources/stars.gif"));
+      wallimg = read(new File("resources/spaceRock.png"));
+      bwallimg = read(new File("resources/spaceRockBr.png"));
+      bulletimg = read(new File("resources/laserRed.png"));
+      speedimg = read(new File("resources/powerS.png"));
+      lifeimg = read(new File("resources/powerL.png"));
+      frimg = read(new File("resources/powerF.png"));
       mapInit();
 
     } catch (IOException ex) {
       System.out.println(ex.getMessage());
     }
-    t2 = new Tank(350, 450, 0, 0, 0, t1img, bulletimg);
-    t1 = new Tank(750, 450, 0, 0, 180, t2img, bulletimg);
-
+    t2 = new Tank(350, 850, 0, 0, 0, t1img, bulletimg);
+    t1 = new Tank(750, 850, 0, 0, 180, t2img, bulletimg);
 
 
     TankControl player2 = new TankControl(t2, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_ENTER);
@@ -119,15 +121,17 @@ public class GameWorld extends JPanel {
     int t2y = checkBY(t2);
 
 
-    BufferedImage p1View = this.world.getSubimage(t1x, t1y, SCREEN_WIDTH / 2, SCREEN_HEIGHT);
-    BufferedImage p2View = this.world.getSubimage(t2x, t2y, SCREEN_WIDTH / 2, SCREEN_HEIGHT);
+    BufferedImage p1View = this.world.getSubimage(t2x, t2y, SCREEN_WIDTH / 2, SCREEN_HEIGHT );
+    BufferedImage p2View = this.world.getSubimage(t1x, t1y, SCREEN_WIDTH / 2, SCREEN_HEIGHT);
 
 
     g2.drawImage(p1View, 0, 0, null);
     g2.drawImage(p2View, SCREEN_WIDTH / 2, 0, null);
 
+    g2.setColor(Color.CYAN);
+    g2.drawLine(SCREEN_WIDTH / 2,0, SCREEN_WIDTH / 2, SCREEN_HEIGHT );
 
-    AffineTransform minimap = AffineTransform.getTranslateInstance(SCREEN_WIDTH / 2.25, 490);
+    AffineTransform minimap = AffineTransform.getTranslateInstance(SCREEN_WIDTH / 2.35, 0);
     minimap.scale(.10, .10);
     g2.drawImage(world, minimap, null);
 
@@ -195,14 +199,16 @@ public class GameWorld extends JPanel {
     return thing;
   }
 
+  //CREATE ADJUST VIEW FUNCTION
+
   public int checkBY(Tank tank) {
-    int thing = tank.getY();
-    if (thing < 0) {
-      thing = 0;
-    } else if (thing > MAP_HEIGHT - SCREEN_HEIGHT) {
-      thing = MAP_HEIGHT - SCREEN_HEIGHT ;
+    int shipY = tank.getY();
+    if (shipY < 0) {
+      shipY = 0;
+    } else if (shipY > MAP_HEIGHT - SCREEN_HEIGHT) {
+      shipY = MAP_HEIGHT - SCREEN_HEIGHT ;
     }
-    return thing;
+    return shipY;
   }
 }
 

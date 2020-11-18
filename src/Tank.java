@@ -47,7 +47,7 @@ public class Tank extends GameObject{
     this.angle = angle;
     this.bounds = new Rectangle(x, y, this.img.getWidth(), this.img.getHeight());
     this.cH = cH.getInstance();
-    this.coolDown = 50;
+    this.coolDown = 150;
     this.timer = 0;
     this.health = 100;
     cH.getInstance().getList().add(this);

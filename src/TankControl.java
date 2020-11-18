@@ -5,11 +5,8 @@
  */
 package src;
 
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-
 
 public class TankControl implements KeyListener {
 
@@ -33,6 +30,11 @@ public class TankControl implements KeyListener {
     public void keyTyped(KeyEvent ke) {
 
     }
+
+    /*public void spriteSwitch(GameObject obj){
+        this.t1 = obj;
+        //seperate x and y
+    }*/
 
     @Override
     public void keyPressed(KeyEvent ke) {

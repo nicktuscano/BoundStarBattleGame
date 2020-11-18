@@ -10,7 +10,7 @@ public class MapBuilder {
   private static BufferedReader mapLoader;
   CollisionHandler cH;
 
-  protected static Character[][] map = new Character[37][37];
+  protected Character[][] map = new Character[37][37];
 
 
 
