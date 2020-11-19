@@ -88,7 +88,7 @@ public class GameWorld extends JPanel {
 
 
     TankControl player2 = new TankControl(t2, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT, KeyEvent.VK_ENTER);
-    TankControl player1 = new TankControl(t1, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_SHIFT);
+    TankControl player1 = new TankControl(t1, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_F);
 
     this.jf.setLayout(new BorderLayout());
     this.jf.add(this);
@@ -131,7 +131,7 @@ public class GameWorld extends JPanel {
     g2.setColor(Color.CYAN);
     g2.drawLine(SCREEN_WIDTH / 2,0, SCREEN_WIDTH / 2, SCREEN_HEIGHT );
 
-    AffineTransform minimap = AffineTransform.getTranslateInstance(SCREEN_WIDTH / 2.35, 0);
+    AffineTransform minimap = AffineTransform.getTranslateInstance(SCREEN_WIDTH / 2.25, 0);
     minimap.scale(.10, .10);
     g2.drawImage(world, minimap, null);
 
@@ -190,13 +190,13 @@ public class GameWorld extends JPanel {
   }
 
   public int checkBX(Tank tank) {
-    int thing = tank.getX() - SCREEN_WIDTH / 4;
-    if (thing < 0) {
-      thing = 0;
-    } else if (thing > MAP_WIDTH - SCREEN_WIDTH / 2) {
-      thing = MAP_WIDTH - SCREEN_WIDTH / 2;
+    int shipX = tank.getX() - SCREEN_WIDTH / 4;
+    if (shipX < 0) {
+      shipX = 0;
+    } else if (shipX > MAP_WIDTH - SCREEN_WIDTH / 2) {
+      shipX = MAP_WIDTH - SCREEN_WIDTH / 2;
     }
-    return thing;
+    return shipX;
   }
 
   //CREATE ADJUST VIEW FUNCTION
